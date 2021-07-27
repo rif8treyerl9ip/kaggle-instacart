@@ -1,4 +1,5 @@
-https://www.kaggle.com/misfyre/beat-the-benchmark-0-3473245/log
+https://www.kaggle.com/paulantoine/light-gbm-benchmark-0-3692/code
+
 ### 特徴
 
 - submitを
