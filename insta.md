@@ -6,28 +6,10 @@ https://www.kaggle.com/c/instacart-market-basket-analysis/overview
 - 扱うデータの種類 テーブルデータ
 - size 
 - タスクの種類 
-- 開催期間 数年前
-
 - 指標：Fscore
 
 
 
+#### 方針
 
-
-
-
-
-
-
-
-
-
-
-
-#### 前処理
-
-#### 設計の部分
-
-
-
-##### 感想
+- 前回の購入をそのまま今回の購入とするモデル
