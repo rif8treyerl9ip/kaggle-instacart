@@ -1,3 +1,4 @@
+https://www.kaggle.com/misfyre/beat-the-benchmark-0-3473245/log
 ### 特徴
 
 - submitを
