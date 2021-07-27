@@ -1,0 +1,10 @@
+*csv
+*gz
+
+# notebooks以下
+notebooks/eda-sql/
+notebooks/others/*.py
+notebooks/others/*.ipynb
+notebooks/others/*.R
+notebooks/others/*.Rmd
+notebooks/.ipynb_checkpoints/*.ipynb
