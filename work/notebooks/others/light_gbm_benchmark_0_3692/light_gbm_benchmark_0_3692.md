@@ -22,6 +22,26 @@ Fscoreらしいが、どうやって計算するのか？
 
 dataframe.iterrows()とdataframe.itertuples()の違い
 
+### 特徴量
+ユーザベース
+- usr['average_days_between_orders'] 注文間隔の平均
+- usr['nb_orders'] 注文数
+
+- users['total_items'] 重複ありでの総購入商品数
+- users['all_products'] user_idごとの商品IDの集合=注文したことがある全商品 
+- users['total_distinct_items'] users['all_products']の数(長さ)
+- users['average_basket'] 1回当たり購入商品数
+- df['days_since_ratio'] = df.days_since_prior_order / df.user_average_days_between_orders
+    - 前回の注文からの日数と平均の注文感覚の比率
+
+ユーザ×商品ベース？
+- df['UP_average_pos_in_cart'] = (df.z.map(userXproduct.sum_pos_in_cart) / df.UP_orders).astype(np.float32)
+    - 平均購入個数
+
+商品IDベース
+- 注文回数
+- そのうちの再注文回数
+- 注文回数/再注文回数
 
 
 

@@ -22,6 +22,42 @@ max_order = max_order.rename(columns={'order_number': 'max_order_number'})
 all_df = all_df.merge(max_order, how='inner', on='user_id')
 all_df.loc[all_df['order_number'] == all_df['max_order_number']].head(50)
 
+# カーネル主成分分析→3Dプロット
+'''
+高次元にするとメモリに乗らないのでランダムサンプリング→KPCA
+'''
+# ランダムサンプリング(教師アリではないが、3次元プロットするときにクラス情報が必要なのでインデックス情報を保持してラベルもとってきた)
+tmp = df_train.sample(frac=0.00).index
+mini = df_train.iloc[tmp]
+miniy = labels[tmp]
+gc.collect()
+
+from sklearn.decomposition import KernelPCA
+scikit_kpca = KernelPCA(n_components=3, kernel='rbf', gamma=15)
+X_skernpca = scikit_kpca.fit_transform(mini)
+
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D # 3次元プロットするためのモジュール
+import seaborn as sns; sns.set_style("darkgrid") # seabornでグラフをみやすく
+
+fig = plt.figure(figsize=(10,10))
+ax = Axes3D(fig)
+
+ax.set_xlabel("X")
+ax.set_ylabel("Y")
+ax.set_zlabel("Z")
+
+ax.scatter(X_skernpca[miniy == 0, 0], X_skernpca[miniy == 0, 1], X_skernpca[miniy == 0, 2], \
+            color='red', marker='^', alpha=0.5)
+ax.scatter(X_skernpca[miniy == 1, 0], X_skernpca[miniy == 1, 1], X_skernpca[miniy == 1, 2], \
+            s = 100,color='blue', marker='o', alpha=0.5)
+ax.view_init(elev=180, azim=270) # 回転の角度指定
+
+plt.show()
+
+
+
+
 # 積集合
 a = set(trainn.user_id.sort_values().values)
 b = set(test_orders.user_id.sort_values().values)

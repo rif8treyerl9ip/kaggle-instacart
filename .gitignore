@@ -7,7 +7,6 @@
 work/eda/
 work/src/
 # notebooks以下
-work/notebooks/eda-sql/
 work/notebooks/others/*.py
 work/notebooks/others/*.ipynb
 work/notebooks/others/*.R
