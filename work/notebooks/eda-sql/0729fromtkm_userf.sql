@@ -105,7 +105,7 @@ bq query --max_rows 1  --allow_large_results --destination_table "instacart.user
 指定すると、クエリ結果が TABLE に保存されます。 TABLE は、PROJECT:DATASET.TABLE の形式で指定します。PROJECT を指定しない場合は、現在のプロジェクトを指定したものとみなされます。--destination_table フラグを指定しないと、クエリ結果は一時テーブルに保存されます。
 プロジェクト修飾テーブル名
 - レガシー SQL では、プロジェクト修飾名でテーブルをクエリするには、区切り文字としてコロン（:）を使用します。例:
-[the-capsule-321000:15th_solution_features.prior_datamart]
+[hoge:hoge.prior_datamart]
 */
 - 解釈
 /*
@@ -159,7 +159,7 @@ SELECT
   SUM(reordered) as sum_reordered,
   AVG(order_dow) as avg_order_dow
 FROM
-    [the-capsule-321000:15th_solution_features.prior_datamart]
+    [hoge:hoge.prior_datamart]
 GROUP BY
   user_id
 "
@@ -174,7 +174,7 @@ SELECT
   MAX(days_since_prior_order) as max_days_since_prior_order,
   MIN(days_since_prior_order) as min_days_since_prior_order,
 FROM
-  [the-capsule-321000:15th_solution_features.prior_datamart]
+  [hoge:hoge.prior_datamart]
 WHERE
   eval_set = 'prior'
 GROUP BY
@@ -216,7 +216,7 @@ SELECT
   avg(CASE WHEN order_dow = 5  THEN reordered ELSE null END) AS  reorder_dow_5,
   avg(CASE WHEN order_dow = 6  THEN reordered ELSE null END) AS  reorder_dow_6
 FROM
-  [the-capsule-321000:15th_solution_features.prior_datamart]
+  [hoge:hoge.prior_datamart]
 GROUP BY
   user_id
 "
@@ -252,7 +252,7 @@ SELECT
   sum(CASE WHEN order_hour_of_day = 22  THEN 1 ELSE 0 END) AS order_hour_of_day_22,
   sum(CASE WHEN order_hour_of_day = 23  THEN 1 ELSE 0 END) AS order_hour_of_day_23
 FROM
-  `the-capsule-321000.15th_solution_features.prior_datamart`
+  `hoge.hoge.prior_datamart`
 GROUP BY
   user_id
 "
@@ -284,7 +284,7 @@ SELECT
   sum(CASE WHEN department_id = 20  THEN 1 ELSE 0 END) AS department_id_20,
   sum(CASE WHEN department_id = 21  THEN 1 ELSE 0 END) AS department_id_21
 FROM
-  `the-capsule-321000.15th_solution_features.train_datamart`
+  `hoge.hoge.train_datamart`
 GROUP BY
   user_id
 "
@@ -398,20 +398,20 @@ SELECT
     -- max_days_since_prior_order_1,
     -- min_days_since_prior_order_1,
 FROM
-  `the-capsule-321000.15th_solution_features.prior_user_features` AS u1
+  `hoge.hoge.prior_user_features` AS u1
 LEFT OUTER JOIN
-  `the-capsule-321000.15th_solution_features.prior_user_dow` AS u2
+  `hoge.hoge.prior_user_dow` AS u2
 ON
   u1.user_id = u2.user_id
 LEFT OUTER JOIN
-  `the-capsule-321000.15th_solution_features.prior_user_hour` AS u3
+  `hoge.hoge.prior_user_hour` AS u3
 ON
   u1.user_id = u3.user_id
 LEFT OUTER JOIN
-  `the-capsule-321000.15th_solution_features.prior_user_depart` AS u4
+  `hoge.hoge.prior_user_depart` AS u4
 ON
   u1.user_id = u4.user_id
 LEFT OUTER JOIN
-  `the-capsule-321000.15th_solution_features.prior_user_freq` AS u5
+  `hoge.hoge.prior_user_freq` AS u5
 ON
   u1.user_id = u5.user_id
