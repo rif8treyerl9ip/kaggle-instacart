@@ -22,4 +22,7 @@ https://www.kaggle.com/c/instacart-market-basket-analysis/overview
 - from light_gbm_benchmark_0_3692
 
 
-#### Kernel 2/10
+#### Kernel 3/10
+beat_the_benchmark_0_3473245
+light_gbm_benchmark_0_3692
+my-15th-solution-features-mainly-using-bigquery
