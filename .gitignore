@@ -11,5 +11,8 @@ work/notebooks/others/*.py
 work/notebooks/others/*.ipynb
 work/notebooks/others/*.R
 work/notebooks/others/*.Rmd
-work/notebooks/others/light_gbm_benchmark_0_3692/*.py
 work/notebooks/.ipynb_checkpoints/*.ipynb
+
+# others個別
+work/notebooks/others/light_gbm_benchmark_0_3692/*.py
+work/notebooks/others/from-tkm/my-15th-solution-features-mainly-using-bigquery.ipynb
